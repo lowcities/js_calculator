@@ -55,17 +55,14 @@ function compute(arr) {
     let total = 0;
 
     function testEquation() {
-     
-        if( num1 !== null && num2 !== null) {
+     if( num1 !== null && num2 !== null) {
             total = operators[operator](num1, num2);
             num1 = total; 
             num2 = null;
             operator = null;
         }
         console.log(total);
-       
     };
-
 
     for(let i = 0; i <= arr.length; i++) {
         if(operatorTest.test(arr[i]) === true) {
@@ -86,7 +83,10 @@ function compute(arr) {
         } 
        
     };
-   
+    
+    equationArray = [];
+    equationArray.push(total);
+    display.textContent = total;
     return console.log(total);
       
         

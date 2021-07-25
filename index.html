@@ -4,61 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <title>Java Calc</title>
 </head>
 <body>
     <section id="calculator" class="calculator">
-        <div class="container-lg">
+        
             <div class="row">
-                <div class="col 6">
-                    <div class="display">0</div>
-                    
-                </div>
+               <div class="display">0</div>
+            </div>
+            
+            <div class="row">
+                <button class="button number"><span class="front">7</span></button>
+                <button class="button number"><span class="front">8</span></button>
+                <button class="button number"><span class="front">9</span></button>
+                <button class="button del-btn"><span class="front">DEL</span></button>
+                
+                
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <span class="button add-btn operator">+</span>
-                    <span class="button subtract-btn operator">-</span>
-                    <span class="button multiply-btn operator">X</span>
-                    <span class="button divide-btn operator">/</span>
-
-                </div>
+                <button class="button number"><span class="front">4</span></button>
+                <button class="button number"><span class="front">5</span></button>
+                <button class="button number"><span class="front">6</span></button>
+                <button class="button add-btn operator"><span class="front">+</span></button>
+                
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <span class="button number">7</span>
-                    <span class="button number">8</span>
-                    <span class="button number">9</span>
-                    
-                </div>
+                <button class="button number"><span class="front">1</span></button>
+                <button class="button number"><span class="front">2</span></button>
+                <button class="button number"><span class="front">3</span></button>
+                <button class="button subtract-btn operator"><span class="front">-</span></button>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <span class="button number">4</span>
-                    <span class="button number">5</span>
-                    <span class="button number">6</span>
-                    
-                </div>
+                <button class="button decimal number"><span class="front">.</span></button>
+                <button class="button number"><span class="front">0</span></button>
+                <button class="button divide-btn operator"><span class="front">/</span></button>
+                <button class="button multiply-btn operator"><span class="front">X</span></button>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <span class="button number">1</span>
-                    <span class="button number">2</span>
-                    <span class="button number">3</span>
-                    <span class="button number">4</span>
-                </div>
+                <button class="button clr-btn"><span class="front-long">AC</span></button>
+                <button class="button equal-btn"><span class="front-long">=</span></button>
             </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <span class="button number">0</span>
-                    <span class="button decimal number">.</span>
-                    <span class="button equal-btn">=</span>
-                    <span class="button clr-btn">AC</span>
-                </div>   
-            </div>
-        </div>
     </section>
 </body>
 <script src="app.js"></script>

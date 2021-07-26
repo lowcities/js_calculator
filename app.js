@@ -4,10 +4,16 @@ const operatorButton = document.getElementsByClassName('operator');
 const display = document.querySelector('.display');
 let equationArray = [];
 
+//Function to delete last character from displayed value
+function del (x) {
+    let last = x.charAt(x.length - 1)
+    return x.replace(last, "");
+    
+}
+
 
 Array.prototype.forEach.call(Buttons, (button) =>{
     let value = button.textContent;
-    let operatorValue;
     button.addEventListener('click', () =>{
        //If the display shows a zero and a number button is pressed, the display will show number
         if(display.textContent === "0" && button.classList.contains('number')) {
@@ -31,7 +37,10 @@ Array.prototype.forEach.call(Buttons, (button) =>{
         } else if(value === 'AC') {
             display.textContent = "0";
             equationArray = [];
+        } else if(value === 'DEL') {
+            display.textContent = del(display.textContent);
         }
+        
         
         
         
@@ -43,12 +52,12 @@ function compute(arr) {
     let operators = {
         "+": function(a, b) {return a + b},
         "-": function(a, b) {return a - b},
-        "X": function(a, b) {return a * b},
-        "/": function(a, b) {return a / b}
+        "\u00D7": function(a, b) {return a * b},
+        "÷": function(a, b) {return a / b}
     }
     let numTest = /\d/g;
     let floatTest = /\./g;
-    let operatorTest = /[+\-X/]/g;
+    let operatorTest = /[+\-÷\u00D7]/g;
     let num1 = null;
     let num2 = null;
     let operator;
@@ -85,7 +94,7 @@ function compute(arr) {
     };
     
     equationArray = [];
-    equationArray.push(total);
+    // equationArray.push(total);
     display.textContent = total;
     return console.log(total);
       

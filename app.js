@@ -1,8 +1,32 @@
 const Buttons= document.getElementsByClassName('button');
 const numberButton = document.getElementsByClassName('number');
 const operatorButton = document.getElementsByClassName('operator');
-const display = document.querySelector('.display');
+
 let equationArray = [];
+const calculator = {
+    displayValue: '0',
+    waitingForOperator: true,  
+};
+
+function inputValue(key) {
+    const { displayValue, waitingForOperator } = calculator;
+
+        if(waitingForOperator == false) {
+            calculator.displayValue = key;
+            calculator.waitingForOperator = true;
+            console.log('condition1');
+        } else {
+            calculator.displayValue = displayValue === '0' ? key : displayValue + key;
+           console.log(calculator.displayValue);
+            console.log('condition2');
+        }
+    
+}
+
+function updateDisplay() {
+    const display = document.querySelector('.display');
+    display.textContent = calculator.displayValue;
+}
 
 //Function to delete last character from displayed value
 function del (x) {
@@ -11,39 +35,39 @@ function del (x) {
     
 }
 
-
 Array.prototype.forEach.call(Buttons, (button) =>{
-    let value = button.textContent;
-    button.addEventListener('click', () =>{
-       //If the display shows a zero and a number button is pressed, the display will show number
-        if(display.textContent === "0" && button.classList.contains('number')) {
-           display.textContent = value;
-    // If another number button is pressed, it will append the number to the existing one on display   
-        } else if(button.classList.contains('number')) {
-            display.textContent += value;
-    //  If the button pressed is an operator and the display is not showing zero 
-        } else if(button.classList.contains('operator') && display.textContent !== "0") {
-            equationArray.push(display.textContent); // The displayed number is pushed to array 
-            operatorValue = value; // The value of the operator button is stored to variable 
+    
+    button.addEventListener('click', (event) =>{
+       
+        let target = event.target.parentNode;
+        console.log(target.value);
+
+        if(target.classList.contains('operator')) {
+            equationArray.push(calculator.displayValue); // The displayed number is pushed to array 
+            operatorValue = target.value; // The value of the operator button is stored to variable 
             equationArray.push(operatorValue); // The operator value is pushed to array
-            display.textContent = "0"; // The display goes back to zero
-    //  If the equal button is pressed 
-        } else if(value === '=') {
-            equationArray.push(display.textContent);// The displayed number is pushed to array
+            calculator.waitingForOperator = false;
+            updateDisplay();
+            return;
+        }
+
+        if(target.value === '=') {
+            equationArray.push(calculator.displayValue);// The displayed number is pushed to array
             console.log(equationArray);
             compute(equationArray); // The compute function is invoked
-            
-    // If the AC button is pressed, the screen goes back to zero and the array empties out 
-        } else if(value === 'AC') {
-            display.textContent = "0";
-            equationArray = [];
-        } else if(value === 'DEL') {
-            display.textContent = del(display.textContent);
+            updateDisplay();
+            return;
         }
-        
-        
-        
-        
+
+        if(target.value === 'AC') {
+            calculator.displayValue = "0";
+            updateDisplay();
+            equationArray = [];
+            return;
+        }
+
+        inputValue(target.value);
+        updateDisplay();
     });
     
 });
@@ -52,12 +76,12 @@ function compute(arr) {
     let operators = {
         "+": function(a, b) {return a + b},
         "-": function(a, b) {return a - b},
-        "\u00D7": function(a, b) {return a * b},
-        "÷": function(a, b) {return a / b}
+        "*": function(a, b) {return a * b},
+        "/": function(a, b) {return a / b}
     }
     let numTest = /\d/g;
     let floatTest = /\./g;
-    let operatorTest = /[+\-÷\u00D7]/g;
+    let operatorTest = /[+\-\\*]/g;
     let num1 = null;
     let num2 = null;
     let operator;
@@ -95,7 +119,7 @@ function compute(arr) {
     
     equationArray = [];
     // equationArray.push(total);
-    display.textContent = total;
+    calculator.displayValue = total;
     return console.log(total);
       
         

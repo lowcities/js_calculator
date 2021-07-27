@@ -19,7 +19,7 @@
     
 }
 .front, .front-long{
-    background: rgb(152, 150, 150);
+    background: rgb(152, 151, 150);
     color: black;
     display: block;
     width: 49px;
@@ -31,7 +31,8 @@
     transform: translateX(-8px) translateY(-5px);
 }
 .front-long {
-    width: 84px;
+    background: rgb(190, 112, 40);
+    width: 118px;
 }
 
 .button:hover .front, .front-long {
@@ -77,6 +78,7 @@
 }
 
 .clr-btn {
+    background: rgb(90, 62, 9);
      width: 121px;
 }
 

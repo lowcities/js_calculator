@@ -2,12 +2,9 @@
     background: linear-gradient( to bottom right, rgb(95, 93, 142) 0%, rgb(19, 19, 19) 90%);
     margin: 0 auto;
     width: 100%;
-    max-width: 420px;
-}
-
+    max-width: 420px;}
 
 .button {
-    
     background: rgb(62, 64, 69);
     cursor: pointer;
     margin: 10px 10px;
@@ -15,10 +12,8 @@
     padding-top: .1rem;
     text-align: center;
     outline-offset: 4px;
-    border-radius: 5px;
-    
-    
-}
+    border-radius: 5px;}
+
 .clr-btn, .equal-btn {
     background: rgb(90, 62, 9);
     text-align: center;
@@ -27,14 +22,10 @@
     outline-offset: 4px;
     width: 121px;
     height: 50px;
-    border-radius: 5px;
-}
+    border-radius: 5px;}
 
 .del-btn {
-    background: rgb(135, 6, 4);
-}
-
-
+    background: rgb(135, 6, 4);}
 
 .front{
     background: rgb(152, 151, 150);
@@ -46,8 +37,8 @@
     font-size: medium;
     font-weight: bold;
     border-radius: 5px;
-    transform: translateX(-8px) translateY(-5px);
-}
+    transform: translateX(-8px) translateY(-5px);}
+
 .front-long {
     display: block;
     font-size: medium;
@@ -57,8 +48,7 @@
     width: 121px;
     padding-top: .7rem;
     padding-bottom: .7rem;
-    transform: translateX(-8px) translateY(-5px);
-}
+    transform: translateX(-8px) translateY(-5px);}
 
 .del-front {
     background: #ac2323;
@@ -72,28 +62,20 @@
       cubic-bezier(.3, .7, .4, 1.5);
   }
 
-.button:active .front{
+.button:active .front {
     transform:  translateX(-5px) translateY(-1px);
     transition: transform 34ms;
   }
 
   .button:focus:not(:focus-visible) {
-    outline: none;
-  }  
-
-.overlay {
-
-
-}
+    outline: none;}  
 
 .row {
     display: table;
-    margin: 10px auto;
-}
+    margin: 10px auto;}
 
 .top-row {
-    margin-top: 2rem;
-}
+    margin-top: 2rem;}
 
 .display {
     font-size: large;
@@ -112,9 +94,3 @@
 }
 
 
-@keyframes blink {
-    0% {opacity: 100%}
-    50% {opacity: 0%}
-    100% {opacity: 100%}
-
-}
